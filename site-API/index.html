@@ -5,13 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços de Resevas</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="441375724303-8a7pekvcnkr5v6sicdgaau7483dob4ru.apps.googleusercontent.com">
 </head>
 <body>
+
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <hr>
 
     <h1>Olá, seja bem-vindo!</h1>
     <hr>
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim error debitis rem sit optio odit fugit reiciendis nulla, neque voluptates voluptatum consequuntur possimus perferendis temporibus libero culpa itaque sapiente eveniet.</p>
+
+    <p>
+        id='msg';
+    </p>
+
+    <script>
+
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        var userID = profile.getId();
+        var userName = profile.getName();
+        var userPicture = profile.getImageUrl();
+        var userEmail = profile.getEmail();
+        var userToken = googleUser.getAuthResponse().id_token;
+
+        document.getElementById('msg').innerHTML = userName;
+    }
+
+    </script>
     
 </body>
 </html>
